@@ -21,6 +21,7 @@
 
 // Define Maximum Value To Trigger Warning
 
+
 // create global variable analog for each sensor
 int rainSensorAnalogValue;
 int soundSensorAnalogValue;
@@ -41,10 +42,36 @@ void RainDrop(int val1, int val2, int val3) {
 // create function to read data from sesnor
 void SecondThreadFunction () {
   // this function for second thread to read data from sensor
+
+  // read analog value of rain drop sensor
+  rainSensorAnalogValue = analogRead(rainAnalog);
+
+  // if necessary, read digital value 
+  rainSensorDigitalValue = digitalRead(rainDigital);
+
+  // read analog value of sound sensor
+  soundSensorAnalogvalue = analogRead(soundAnalog);
+
+  // read analog value of pir sensor
+  pirSensorAnalogValue = analogRead(pirAnalog);
 }
 
 void setup() {
   // declare pin for input
+  // pinMode for rain sensor interface
+  pinMode(rainAnalog, INPUT);
+  pinMode(rainDigital, INPUT);
+
+  // pinMode for sound sensor interface
+  pinMode(soundAnalog, INPUT);
+
+  // pinMode for pir sensor interface
+  pinMode(pirAnalog, INPUT);
+
+  // pinMode for infrared sensor interface
+  pinMode(infraredAnalog, INPUT);
+  pinMode(infraredDigital, INPUT);
+
   
 }
 
